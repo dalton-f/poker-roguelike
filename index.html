@@ -17,6 +17,102 @@
     <script src="dist/js/app.js" defer></script>
   </head>
   <body>
-    <main></main>
+    <main class="grid grid-cols-[25%_75%]">
+      <aside
+        class="flex min-h-dvh flex-col justify-between gap-2 bg-[#2D3A3B] px-2 py-8 text-center text-3xl font-medium text-white"
+      >
+        <h1 class="text-5xl">Small Blind</h1>
+
+        <div
+          class="flex flex-col items-center rounded-2xl bg-[#182426] px-4 py-3"
+        >
+          <p>Score at least</p>
+
+          <p class="text-5xl text-[#EF4637]">300</p>
+        </div>
+
+        <div class="flex items-center gap-6 rounded-2xl bg-[#182426] px-4 py-3">
+          <p>Round score</p>
+
+          <p class="w-100 rounded-2xl bg-[#252D30] text-5xl">0</p>
+        </div>
+
+        <div
+          class="flex flex-col gap-4 rounded-2xl bg-[#182426] px-4 py-3 text-5xl"
+        >
+          <p>Four of a Kind</p>
+
+          <div class="flex items-center gap-2">
+            <p class="w-full rounded-2xl bg-[#018BF6] px-4 py-3 text-right">
+              0
+            </p>
+            <p class="text-[#EF4637]">X</p>
+            <p class="w-full rounded-2xl bg-[#EF4637] px-4 py-3 text-left">0</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div
+            class="flex flex-col items-center gap-3 rounded-2xl bg-[#182426] px-4 py-3"
+          >
+            <p>Hands</p>
+
+            <p class="w-full rounded-2xl bg-[#252D30] text-5xl text-[#018BF6]">
+              4
+            </p>
+          </div>
+
+          <div
+            class="flex flex-col items-center gap-3 rounded-2xl bg-[#182426] px-4 py-3"
+          >
+            <p>Discards</p>
+
+            <p class="w-full rounded-2xl bg-[#252D30] text-5xl text-[#EF4637]">
+              3
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col items-center gap-3 rounded-2xl bg-[#182426] px-4 py-3"
+        >
+          <p class="w-full rounded-2xl bg-[#252D30] text-5xl text-[#FA8C01]">
+            $4
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div
+            class="flex flex-col items-center gap-3 rounded-2xl bg-[#182426] px-4 py-3"
+          >
+            <p>Ante</p>
+
+            <div class="w-full rounded-2xl bg-[#252D30] text-5xl">
+              <p><span class="text-[#FA8C01]">1</span>/8</p>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col items-center gap-3 rounded-2xl bg-[#182426] px-4 py-3"
+          >
+            <p>Round</p>
+
+            <div
+              class="w-full rounded-2xl bg-[#252D30] text-5xl text-[#FA8C01]"
+            >
+              <p>0</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="px-8 py-16">
+        <div class="rounded-2xl bg-[#3F3F3F]/40"></div>
+
+        <div></div>
+
+        <div class="rounded-2xl bg-[#3F3F3F]/40"></div>
+      </section>
+    </main>
   </body>
 </html>

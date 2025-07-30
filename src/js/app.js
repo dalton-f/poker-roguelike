@@ -24,6 +24,31 @@ document.addEventListener("DOMContentLoaded", async () => {
   const { cards: drawnCards } = await deckManager.drawCards(8);
 
   displayCards(drawnCards);
+
+  const checkboxes = Array.from(
+    document.querySelectorAll("input[type='checkbox']"),
+  );
+  let selectedCheckboxes = [];
+
+  // Allow right click to unselect all cards
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    for (const checkbox of checkboxes) checkbox.checked = false;
+  });
+
+  for (const checkbox of checkboxes) {
+    checkbox.addEventListener("change", () => {
+      selectedCheckboxes = checkboxes.filter((cb) => cb.checked);
+
+      // Grab the ids from the checkbox input to store the cards directly
+      gameState.selectedCards = selectedCheckboxes.map(
+        (cb) => drawnCards[cb.id],
+      );
+
+      // Prevent the user from selecting more than 5 cards
+      if (gameState.selectedCards.length >= 6) checkbox.checked = false;
+    });
+  }
 });
 
 const displayCards = (drawnCards) => {

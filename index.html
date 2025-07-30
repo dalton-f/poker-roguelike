@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="font-jersey-15 antialiased">
+<html lang="en" class="font-jersey-15 antialiased select-none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,7 +21,7 @@
       <aside
         class="flex min-h-dvh flex-col justify-between gap-2 bg-[#2D3A3B] px-2 py-8 text-center text-3xl font-medium text-white"
       >
-        <h1 class="text-5xl">Small Blind</h1>
+        <h1 class="text-5xl"><span>Small</span> Blind</h1>
 
         <div
           class="flex flex-col items-center rounded-2xl bg-[#182426] px-4 py-3"
@@ -38,7 +38,7 @@
         </div>
 
         <div
-          class="flex flex-col gap-4 rounded-2xl bg-[#182426] px-4 py-3 text-5xl"
+          class="flex flex-col gap-4 rounded-2xl bg-[#182426] px-4 py-3 text-4xl"
         >
           <p>Four of a Kind</p>
 
@@ -106,12 +106,28 @@
         </div>
       </aside>
 
-      <section class="px-8 py-16">
+      <section class="flex flex-col justify-end gap-8 px-8 py-16">
         <div class="rounded-2xl bg-[#3F3F3F]/40"></div>
 
         <div></div>
 
-        <div class="rounded-2xl bg-[#3F3F3F]/40"></div>
+        <div
+          class="flex items-center justify-center gap-2"
+          id="drawnCardsDisplay"
+        ></div>
+
+        <div class="flex justify-center gap-4 text-center text-4xl text-white">
+          <button
+            class="w-full max-w-3xs cursor-pointer rounded-2xl bg-[#018BF6] px-4 py-3 transition duration-300 ease-linear hover:brightness-70 focus-visible:brightness-70"
+          >
+            Play Hand
+          </button>
+          <button
+            class="w-full max-w-3xs cursor-pointer rounded-2xl bg-[#EF4637] px-4 py-3 transition duration-300 ease-linear hover:brightness-70 focus-visible:brightness-70"
+          >
+            Discard
+          </button>
+        </div>
       </section>
     </main>
   </body>

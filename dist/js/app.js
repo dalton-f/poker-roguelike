@@ -42,7 +42,30 @@ var gameState = {
   currentMoney: 4,
   selectedCards: []
 };
+var cardValueSortingOrder = {
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
+  7: 7,
+  8: 8,
+  9: 9,
+  10: 10,
+  JACK: 11,
+  QUEEN: 12,
+  KING: 13,
+  ACE: 14
+};
+var cardSuitSortingOrder = {
+  SPADES: 4,
+  HEARTS: 3,
+  CLUBS: 2,
+  DIAMONDS: 1
+};
 var drawnCardsDisplay = document.getElementById("drawnCardsDisplay");
+var sortByRankButton = document.getElementById("sortByRankButton");
+var sortBySuitButton = document.getElementById("sortBySuitButton");
 document.addEventListener("DOMContentLoaded", /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
   var deckManager, deckData, _yield$deckManager$dr, drawnCards, checkboxes, selectedCheckboxes, _loop, _i2, _checkboxes2;
   return _regenerator().w(function (_context2) {
@@ -58,6 +81,7 @@ document.addEventListener("DOMContentLoaded", /*#__PURE__*/_asyncToGenerator(/*#
       case 2:
         _yield$deckManager$dr = _context2.v;
         drawnCards = _yield$deckManager$dr.cards;
+        drawnCards = sortCardsByValue(drawnCards);
         displayCards(drawnCards);
         checkboxes = Array.from(document.querySelectorAll("input[type='checkbox']"));
         selectedCheckboxes = []; // Allow right click to unselect all cards
@@ -86,6 +110,7 @@ document.addEventListener("DOMContentLoaded", /*#__PURE__*/_asyncToGenerator(/*#
 
                   // Prevent the user from selecting more than 5 cards
                   if (gameState.selectedCards.length >= 6) checkbox.checked = false;
+                  console.log(gameState.selectedCards);
                 });
               case 1:
                 return _context.a(2);
@@ -104,11 +129,31 @@ document.addEventListener("DOMContentLoaded", /*#__PURE__*/_asyncToGenerator(/*#
         _context2.n = 3;
         break;
       case 5:
+        sortByRankButton.addEventListener("click", function () {
+          drawnCards = sortCardsByValue(drawnCards);
+          displayCards(drawnCards);
+        });
+        sortBySuitButton.addEventListener("click", function () {
+          drawnCards = sortCardsBySuit(drawnCards);
+          displayCards(drawnCards);
+        });
+      case 6:
         return _context2.a(2);
     }
   }, _callee);
 })));
+var sortCardsByValue = function sortCardsByValue(drawnCards) {
+  return drawnCards.sort(function (a, b) {
+    return cardValueSortingOrder[b.value] - cardValueSortingOrder[a.value];
+  });
+};
+var sortCardsBySuit = function sortCardsBySuit(drawnCards) {
+  return drawnCards.sort(function (a, b) {
+    return cardSuitSortingOrder[b.suit] - cardSuitSortingOrder[a.suit];
+  });
+};
 var displayCards = function displayCards(drawnCards) {
+  drawnCardsDisplay.innerHTML = "";
   for (var i = 0; i < drawnCards.length; i++) {
     var drawnCard = drawnCards[i];
     var container = document.createElement("div");
